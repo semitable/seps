@@ -37,15 +37,15 @@ This repository is an implementation of SePS and not necessarily the identical c
 
 Right now, the proposed hyperparameters can be found in the config function of `ops_utils.py` (for the SePS procedure) and for `ac.py` (A2C hyperparameters).
 For SePS (`ops_utils.py`):
-    - `pretraining_steps`: always returns stabler results when increased. Usually works with as low as 2,000, but should be increased to 10,000 if time/memory allows. Simpler environments (like BPS) can handle much smaller values.
-    - `clusters`: the number of clusters (K in the paper). Please see respective section in the paper. When # of clusters is unknown Davies–Bouldin index is recommended (scikit-learn function [here](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.davies_bouldin_score.html) works well). DB-Index will be used automatically if `clusters=None`.
-    - `z_features`: Typical values of ~5-10 work well with the tested number of types. If this value is set to 2 then a visualisation will be saved at "clusters.png"
-    - `kl_weight`: Values near zero work well since it tends to overwhelm the reconstruction loss. Try setting to zero when debugging.
-    - `reconstruct`: Could be changed from `["next_obs", "rew"]` to only `["next_obs"]` or `["rew"]` if it known that the environment only changes the observation or reward function respectively (and not both).
-    - `delay/delay_training/pretraining_times` can be used in situation when differences between types are shown later in the training.
+- `pretraining_steps`: always returns stabler results when increased. Usually works with as low as 2,000, but should be increased to 10,000 if time/memory allows. Simpler environments (like BPS) can handle much smaller values.
+- `clusters`: the number of clusters (K in the paper). Please see respective section in the paper. When # of clusters is unknown Davies–Bouldin index is recommended (scikit-learn function [here](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.davies_bouldin_score.html) works well). DB-Index will be used automatically if `clusters=None`.
+- `z_features`: Typical values of ~5-10 work well with the tested number of types. If this value is set to 2 then a visualisation will be saved at "clusters.png"
+- `kl_weight`: Values near zero work well since it tends to overwhelm the reconstruction loss. Try setting to zero when debugging.
+- `reconstruct`: Could be changed from `["next_obs", "rew"]` to only `["next_obs"]` or `["rew"]` if it known that the environment only changes the observation or reward function respectively (and not both).
+- `delay/delay_training/pretraining_times`: can be used in situation when differences between types are shown later in the training.
 
 In `ac.py`:
-    - `algorithm_mode`: Can be set to "ops", "iac", "snac-a", "snac-b". These values correspond to "SePS", "NoPS", "FuPS", "FuPS+id" respectively.
+- "algorithm_mode": Can be set to "ops", "iac", "snac-a", "snac-b". These values correspond to "SePS", "NoPS", "FuPS", "FuPS+id" respectively.
 
 ## model.py
 
