@@ -11,8 +11,8 @@ pip install -r requirements.txt
 ii) Install at least one of the supported environments:
 - Multi-Robot Warehouse found [here](https://github.com/semitable/robotic-warehouse/tree/color) (SePS requires the `color` branch of RWARE which supports multiple agent types) 
 - Blind-Particle Spread from our fork of Petting-Zoo [here](https://github.com/semitable/PettingZoo)
-- Level-Based Foraging found [here](https://github.com/semitable/robotic-warehouse) (Important! LBF must be modified to perist agent levels across environment resets)
-- Starcraft Multi-Agent Challenge [here](https://github.com/oxwhirl/smac) (Careful! Requires installation of SC2 which is a large package. For our implementation you _must_ remove that SMACCompatible wrapper from the configuration, by removing the respective line in `ac.py`)
+- Level-Based Foraging found [here](https://github.com/semitable/robotic-warehouse) (Important! LBF must be modified to make agent levels persist across environment resets)
+- Starcraft Multi-Agent Challenge [here](https://github.com/oxwhirl/smac) (Careful! Requires installation of SC2 which is a large package. For our implementation you _must_ remove that SMACCompatible wrapper from the configuration, by removing the respective line in `ac.py:config`)
 
 ## Running
 
