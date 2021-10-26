@@ -5,6 +5,8 @@ import numpy as np
 import torch
 from cpprb import ReplayBuffer, create_before_add_func, create_env_dict
 from kmeans_pytorch import kmeans
+from sklearn.cluster import KMeans
+from sklearn.metrics import silhouette_score, davies_bouldin_score
 from sacred import Ingredient
 from torch import nn
 from torch.utils.data import DataLoader, Dataset
@@ -149,7 +151,7 @@ def plot_clusters(cluster_centers, z, human_selected_idx, _run):
 
 def find_optimal_cluster_number(X):
 
-    range_n_clusters = list(range(2, 10))
+    range_n_clusters = list(range(2, X.shape[0]))
     scores = {}
 
     for n_clusters in range_n_clusters:
